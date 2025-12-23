@@ -45,8 +45,8 @@ resource "aws_s3_bucket" "dr_backup" {
 # 4. CREATE_BEFORE_DESTROY - Zero Downtime
 # ==================================================
 resource "aws_security_group" "web_sg" {
-  name = "web-sg-v1"
-  description = "Security group for web servers"
+  name = "web-sg-v1-"
+  description = "Allow HTTP and HTTPS"
   lifecycle {
     create_before_destroy =true
   }
@@ -56,7 +56,7 @@ resource "aws_security_group" "web_sg" {
 # ==============================================================================
 # Step A: Create Config File locally
 resource "local_file" "app_config" {
-  content  = "version=1.0"
+  content  = "version=2.0"
   filename = "${path.module}/app.conf"
 }
 

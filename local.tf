@@ -7,7 +7,7 @@ locals {
   }
 }
 resource "random_string" "suffix" {
-  length  = 5
+  length  = 7
   upper   = false
   lower   = true
   numeric = true
